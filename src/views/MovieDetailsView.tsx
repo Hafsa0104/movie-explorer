@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useMovieDetailsViewModel } from '../viewmodels/useMovieDetailsViewModel';
 import { ROUTE_PATHS } from '../routes/paths';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import './MovieDetailsView.css';
 
 /**
@@ -14,7 +15,7 @@ function MovieDetailsView() {
   const { status, movie, errorMessage } = useMovieDetailsViewModel();
   const navigate = useNavigate();
   const { pathname } = useLocation();
-
+  useDocumentTitle(movie?.Title);
   // Resets scroll to the top whenever the URL for this page changes —
   // including navigating directly from one movie's details to another's,
   // since React Router keeps this component mounted and just re-renders

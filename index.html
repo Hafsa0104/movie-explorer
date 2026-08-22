@@ -2,32 +2,57 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+    <!-- Responsive viewport -->
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
 
+    <!-- Basic SEO -->
+    <meta
+      name="description"
+      content="Movie Explorer — discover movies, explore details, and save your favourite movies."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Movie Explorer" />
+    <meta
+      property="og:description"
+      content="Discover movies, explore movie details, and save your favourite movies with Movie Explorer."
+    />
+    <meta property="og:url" content="https://movie-explorer.vercel.app/" />
+    <meta property="og:site_name" content="Movie Explorer" />
+
     <!--
-      Establish the network connections early.
+      Establish network connections early.
 
       OMDb API:
-      Used to retrieve movie details.
+      Used to retrieve movie data.
 
       Amazon media CDN:
       OMDb poster URLs commonly point here.
     -->
-    <link rel="preconnect" href="https://www.omdbapi.com" />
-    <link rel="dns-prefetch" href="//www.omdbapi.com" />
+    <link
+      rel="preconnect"
+      href="https://www.omdbapi.com"
+    />
+    <link
+      rel="dns-prefetch"
+      href="//www.omdbapi.com"
+    />
 
     <link
       rel="preconnect"
       href="https://m.media-amazon.com"
       crossorigin
     />
-    <link rel="dns-prefetch" href="//m.media-amazon.com" />
+    <link
+      rel="dns-prefetch"
+      href="//m.media-amazon.com"
+    />
 
     <title>Movie Explorer</title>
   </head>
@@ -35,6 +60,9 @@
   <body>
     <div id="root"></div>
 
-    <script type="module" src="/src/main.tsx"></script>
+    <script
+      type="module"
+      src="/src/main.tsx"
+    ></script>
   </body>
 </html>

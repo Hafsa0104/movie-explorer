@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { ROUTE_PATHS } from '../routes/paths';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import './NotFoundView.css';
 
 /**
  * Shown whenever the URL does not match any declared route.
  */
 function NotFoundView() {
+  useDocumentTitle('Page Not Found');
   return (
     <section className="not-found-view page-container">
       <h1 className="not-found-view__code">404</h1>

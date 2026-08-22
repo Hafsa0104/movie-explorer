@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { useFavouritesViewModel } from '../viewmodels/useFavouritesViewModel';
 import MovieCard from '../components/movie/MovieCard';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { ROUTE_PATHS } from '../routes/paths';
 
 import './FavouritesView.css';
@@ -22,6 +23,7 @@ function FavouritesView() {
     loading,
     errorMessage,
   } = useFavouritesViewModel();
+  useDocumentTitle('My Favourites');
 
   if (authLoading) {
     return (

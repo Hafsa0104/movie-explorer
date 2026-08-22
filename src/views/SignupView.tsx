@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useSignupViewModel } from '../viewmodels/useSignupViewModel';
 import { ROUTE_PATHS } from '../routes/paths';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import './AuthView.css';
 
 /**
@@ -19,6 +20,7 @@ function SignupView() {
     errorMessage,
     handleSubmit,
   } = useSignupViewModel();
+  useDocumentTitle('Sign Up');
 
   return (
     <section className="auth-view">

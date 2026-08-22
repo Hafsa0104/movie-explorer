@@ -2,6 +2,7 @@ import { useHomeViewModel } from '../viewmodels/useHomeViewModel';
 import { useMovieCollectionViewModel } from '../viewmodels/useMovieCollectionViewModel';
 import Hero from '../components/Hero/Hero';
 import MovieRow from '../components/MovieRow/MovieRow';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { HOME_SECTION_IDS } from '../routes/paths';
 
 // Curated, real movie titles per section, searched via the existing
@@ -65,6 +66,7 @@ const HERO_MOVIE_COUNT = 6;
  * section loading/failing never affects the others.
  */
 function HomeView() {
+  useDocumentTitle();
   const trending = useMovieCollectionViewModel(TRENDING_TITLES);
   const popular = useMovieCollectionViewModel(POPULAR_TITLES);
   const topRated = useMovieCollectionViewModel(TOP_RATED_TITLES);

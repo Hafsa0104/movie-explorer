@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useLoginViewModel } from '../viewmodels/useLoginViewModel';
 import { ROUTE_PATHS } from '../routes/paths';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import './AuthView.css';
 
 /**
@@ -9,6 +10,7 @@ import './AuthView.css';
  */
 function LoginView() {
   const { email, setEmail, password, setPassword, submitting, errorMessage, handleSubmit } = useLoginViewModel();
+  useDocumentTitle('Log In');
 
   return (
     <section className="auth-view">

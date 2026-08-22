@@ -3,6 +3,7 @@ import type { FormEvent } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useSearchViewModel } from '../viewmodels/useSearchViewModel';
 import MovieCard from '../components/movie/MovieCard';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import './SearchView.css';
 
 /**
@@ -12,6 +13,7 @@ import './SearchView.css';
  */
 function SearchView() {
   const [searchParams] = useSearchParams();
+  useDocumentTitle('Search Movies');
   const {
     query,
     setQuery,
