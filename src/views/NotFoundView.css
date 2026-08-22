@@ -1,0 +1,30 @@
+.not-found-view {
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  text-align: center;
+}
+
+.not-found-view__code {
+  font-size: var(--font-size-3xl);
+  color: var(--color-accent);
+}
+
+.not-found-view__message {
+  color: var(--color-text-secondary);
+}
+
+.not-found-view__link {
+  margin-top: var(--space-md);
+  color: var(--color-accent);
+  font-weight: var(--font-weight-medium);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast);
+}
+
+.not-found-view__link:hover {
+  border-color: var(--color-accent);
+}

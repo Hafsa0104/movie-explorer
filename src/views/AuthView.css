@@ -1,0 +1,203 @@
+.auth-view {
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100dvh - var(--header-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: var(--space-lg);
+  padding-inline: var(--content-padding-inline);
+}
+
+/* Fixed, shared height for both Login and Signup so they're always the
+   same size and both fit within one viewport without scrolling — the
+   card does NOT grow with content. The form uses flex + margin-top:auto
+   on the submit button (see .auth-view__form / .auth-view__submit
+   below), so Signup's extra field just eats into the button's leftover
+   whitespace instead of making the card taller, and an error appearing
+   shifts things slightly within the fixed card rather than growing it. */
+.auth-view__card {
+  width: 100%;
+  max-width: 400px;
+  height: 32rem;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-elevated);
+  box-shadow: var(--shadow-md);
+}
+
+.auth-view__title {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2xs);
+}
+
+.auth-view__subtitle {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+/* ---- Error area ----
+   Sits between the subtitle and the form. Empty (zero height) when
+   there's no error; when one appears, the form below simply has less
+   flexible space to work with (see .auth-view__form), so the card
+   itself never grows or shifts position on screen. */
+.auth-view__error-slot {
+  display: flex;
+  align-items: center;
+  margin-top: var(--space-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.auth-view__error-slot--visible {
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-sm);
+  background-color: rgba(224, 93, 93, 0.12);
+}
+
+.auth-view__error-text {
+  width: 100%;
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+}
+
+.auth-view__error-summary {
+  width: 100%;
+}
+
+.auth-view__error-heading {
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-2xs);
+}
+
+.auth-view__error-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+}
+
+/* ---- Form ----
+   flex: 1 lets the form fill whatever space remains in the fixed-height
+   card after the title/subtitle/error area take their natural height.
+   margin-top: auto on the submit button pushes it (and the footer link
+   right after the form) to the same position whether there are 2 fields
+   (Login) or 3 (Signup) — the extra field just shrinks that leftover
+   gap instead of growing the card. */
+.auth-view__form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  min-height: 0;
+}
+
+.auth-view__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.auth-view__label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.auth-view__input {
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-strong);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  transition: border-color var(--transition-fast);
+}
+
+.auth-view__input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-color: var(--color-accent);
+}
+
+.auth-view__submit {
+  margin-top: auto;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
+  font-weight: var(--font-weight-semibold);
+  transition: background-color var(--transition-fast), opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.auth-view__submit:hover:not(:disabled) {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+.auth-view__submit:active:not(:disabled) {
+  transform: translateY(0) scale(0.97);
+}
+
+.auth-view__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-view__footer {
+  margin-top: var(--space-md);
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.auth-view__footer-link {
+  color: var(--color-accent);
+  font-weight: var(--font-weight-medium);
+}
+
+.auth-view__footer-link:hover {
+  border-bottom: 1px solid var(--color-accent);
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 860px) {
+  .auth-view__card {
+    height: 30rem;
+    padding: var(--space-lg);
+  }
+}
+
+@media (max-width: 560px) {
+  .auth-view {
+    padding-block: var(--space-md);
+  }
+
+  .auth-view__card {
+    height: 28rem;
+    min-height: 28rem;
+    padding: var(--space-lg) var(--space-md);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-view__submit {
+    transition: background-color var(--transition-fast), opacity var(--transition-fast);
+  }
+
+  .auth-view__submit:hover:not(:disabled),
+  .auth-view__submit:active:not(:disabled) {
+    transform: none;
+  }
+}

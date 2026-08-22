@@ -1,0 +1,198 @@
+.movie-row {
+  scroll-margin-top: calc(var(--header-height) + var(--space-md));
+  padding-block: var(--space-xl);
+}
+
+.movie-row__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.movie-row__title {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-lg);
+}
+
+/* ---- Scroll wrapper: prev button | track | next button ---- */
+
+.movie-row__scroll-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.movie-row__nav-button {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+  border: 1px solid var(--color-border-strong);
+
+  background-color: var(--color-bg-elevated-2);
+  color: var(--color-text-primary);
+
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    opacity var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.movie-row__nav-button:hover:not(:disabled) {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-muted);
+  color: var(--color-accent);
+  transform: scale(1.08);
+}
+
+.movie-row__nav-button:active:not(:disabled) {
+  transform: scale(0.92);
+}
+
+.movie-row__nav-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Soft edge fade hinting there's more content to scroll to, only shown
+   when the wrapper's modifier class says there actually is — those
+   classes are driven by the same canScrollPrev/canScrollNext state that
+   already disables the buttons, so this is purely decorative, not new
+   logic. Positioned to start just past each nav button. */
+.movie-row__scroll-wrapper::before,
+.movie-row__scroll-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(24px, 6vw, 56px);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.movie-row__scroll-wrapper::before {
+  left: 44px;
+  background: linear-gradient(to right, var(--color-bg) 0%, rgba(11, 12, 16, 0) 100%);
+}
+
+.movie-row__scroll-wrapper::after {
+  right: 44px;
+  background: linear-gradient(to left, var(--color-bg) 0%, rgba(11, 12, 16, 0) 100%);
+}
+
+.movie-row__scroll-wrapper--can-scroll-prev::before {
+  opacity: 1;
+}
+
+.movie-row__scroll-wrapper--can-scroll-next::after {
+  opacity: 1;
+}
+
+/* ---- Scrollable track ---- */
+
+
+.movie-row__track {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  gap: var(--space-lg);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding-block: var(--space-2xs);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.movie-row__track::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-row__item {
+  flex: 0 0 auto;
+  width: clamp(140px, 22vw, 190px);
+  scroll-snap-align: start;
+}
+
+/* ---- Loading skeleton ---- */
+
+.movie-row__track--skeleton {
+  overflow: hidden;
+}
+
+.movie-row__skeleton-card {
+  flex: 0 0 auto;
+  width: clamp(140px, 22vw, 190px);
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    100deg,
+    var(--color-bg-elevated) 30%,
+    var(--color-bg-elevated-2) 45%,
+    var(--color-bg-elevated) 60%
+  );
+  background-size: 300% 100%;
+  animation: movie-row-skeleton-pulse 1.4s ease infinite;
+}
+
+@keyframes movie-row-skeleton-pulse {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .movie-row__skeleton-card {
+    animation: none;
+  }
+
+  .movie-row__nav-button:hover:not(:disabled),
+  .movie-row__nav-button:active:not(:disabled) {
+    transform: none;
+  }
+}
+
+/* ---- Error / empty states ---- */
+
+.movie-row__message {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  padding-block: var(--space-md);
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 560px) {
+  .movie-row__item,
+  .movie-row__skeleton-card {
+    width: clamp(120px, 40vw, 150px);
+  }
+
+  .movie-row__track {
+    gap: var(--space-md);
+  }
+
+  .movie-row__scroll-wrapper::before,
+  .movie-row__scroll-wrapper::after {
+    display: none;
+  }
+}

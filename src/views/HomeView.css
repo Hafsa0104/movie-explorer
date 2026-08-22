@@ -1,0 +1,111 @@
+.home-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: min(680px, 82vh);
+  display: flex;
+  align-items: center;
+}
+
+/* ---- Background carousel ---- */
+
+.home-hero__backgrounds {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: var(--color-bg);
+}
+
+.home-hero__background {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center top;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 1.4s ease;
+}
+
+.home-hero__background.is-active {
+  opacity: 1;
+}
+
+/* ---- Overlay ----
+   Two gradients from variables.css, layered together: a bottom-up dark
+   fade (so content near the top/left stays readable regardless of what's
+   behind it) and a left-side dark fade (so the hero text column always
+   sits over a darkened area, no matter which background is active). */
+.home-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: var(--gradient-hero-side), var(--gradient-hero-overlay);
+}
+
+/* ---- Content ---- */
+
+.home-hero__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 640px;
+  padding-inline: var(--content-padding-inline);
+}
+
+.home-hero__title {
+  color: var(--color-text-primary);
+}
+
+.home-hero__tagline {
+  max-width: 42ch;
+  font-size: var(--font-size-md);
+}
+
+.home-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  margin-top: var(--space-sm);
+  padding: var(--space-sm) var(--space-xl);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
+  font-weight: var(--font-weight-semibold);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.home-hero__cta:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 860px) {
+  .home-hero {
+    min-height: min(560px, 78vh);
+  }
+}
+
+@media (max-width: 560px) {
+  .home-hero {
+    min-height: 480px;
+  }
+
+  .home-hero__title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .home-hero__tagline {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* Respect reduced-motion preferences: skip the crossfade animation. */
+@media (prefers-reduced-motion: reduce) {
+  .home-hero__background {
+    transition: none;
+  }
+}

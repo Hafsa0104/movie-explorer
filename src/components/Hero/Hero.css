@@ -1,0 +1,395 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  /*
+   * Reserved Hero space prevents layout movement while
+   * the image/API data is loading.
+   */
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100dvh - var(--header-height));
+
+  display: flex;
+  align-items: center;
+
+  background-color: var(--color-bg);
+}
+
+/* =========================================================
+   LOADING / FALLBACK
+   ========================================================= */
+
+.hero--loading,
+.hero--fallback {
+  background-color: var(--color-bg-elevated);
+  justify-content: flex-start;
+}
+
+.hero--fallback .hero__overlay {
+  background: radial-gradient(
+    circle at 20% 30%,
+    var(--color-bg-elevated-2),
+    var(--color-bg) 70%
+  );
+}
+
+.hero__loading-text {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-md);
+  padding-inline: var(--content-padding-inline);
+}
+
+.hero__fallback-title {
+  color: var(--color-text-primary);
+}
+
+.hero__fallback-tagline {
+  max-width: 42ch;
+  font-size: var(--font-size-md);
+  margin-top: var(--space-sm);
+}
+
+/* =========================================================
+   HERO IMAGE
+   ========================================================= */
+
+.hero__backgrounds {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  overflow: hidden;
+
+  background-color: var(--color-bg);
+}
+
+/*
+ * Real <img> elements are used instead of CSS backgrounds.
+ *
+ * This lets the browser understand that these are actual image
+ * resources and allows fetchPriority to influence loading priority.
+ */
+.hero__background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* object-fit/object-position are the <img> equivalents of the old
+     background-size/background-position — this element is now a real
+     <img>, not a div with a CSS background, so those old properties did
+     nothing. */
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0;
+  transform: scale(1.03);
+  transition:
+    opacity 1.2s ease,
+    transform 1.4s ease;
+}
+
+.hero__background.is-active {
+  opacity: 1;
+}
+
+/* =========================================================
+   OVERLAY
+   ========================================================= */
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.78) 0%,
+      rgba(0, 0, 0, 0.52) 38%,
+      rgba(0, 0, 0, 0.18) 72%,
+      rgba(0, 0, 0, 0.28) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.65) 0%,
+      rgba(0, 0, 0, 0.12) 55%,
+      rgba(0, 0, 0, 0.18) 100%
+    );
+}
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: var(--space-md);
+
+  width: 100%;
+  max-width: 640px;
+
+  padding-inline: var(--content-padding-inline);
+  padding-bottom: var(--space-3xl);
+}
+
+.hero__title {
+  color: var(--color-text-primary);
+}
+
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  gap: var(--space-sm);
+
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.hero__meta span:not(:last-child)::after {
+  content: '•';
+
+  margin-left: var(--space-sm);
+
+  color: var(--color-border-strong);
+}
+
+.hero__rating {
+  color: var(--color-accent);
+  font-weight: var(--font-weight-semibold);
+}
+
+.hero__plot {
+  max-width: 58ch;
+
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: var(--space-md);
+
+  margin-top: var(--space-sm);
+}
+
+.hero__button {
+  display: inline-flex;
+  align-items: center;
+
+  padding: var(--space-sm) var(--space-xl);
+
+  border-radius: var(--radius-pill);
+
+  font-weight: var(--font-weight-semibold);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.hero__button:active {
+  transform: scale(0.94);
+}
+
+.hero__button--primary {
+  background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
+}
+
+.hero__button--primary:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+.hero__button--secondary {
+  border: 1px solid var(--color-border-strong);
+
+  color: var(--color-text-primary);
+
+  background-color: var(--color-surface-overlay);
+}
+
+.hero__button--secondary:hover {
+  border-color: var(--color-accent);
+
+  background-color: var(--color-accent-muted);
+
+  color: var(--color-accent);
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   PREVIOUS / NEXT + DOT CONTROLS
+   ========================================================= */
+
+.hero__controls {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 50%;
+  bottom: var(--space-xl);
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: var(--space-md);
+}
+
+.hero__nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  border: 1px solid var(--color-border-strong);
+
+  background-color: var(--color-surface-overlay);
+
+  color: var(--color-text-primary);
+
+  font-size: var(--font-size-lg);
+  line-height: 1;
+
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.hero__nav-button:hover {
+  border-color: var(--color-accent);
+
+  background-color: var(--color-accent-muted);
+
+  color: var(--color-accent);
+
+  transform: scale(1.08);
+}
+
+.hero__nav-button:active {
+  transform: scale(0.94);
+}
+
+.hero__dots {
+  display: flex;
+  align-items: center;
+
+  gap: var(--space-xs);
+}
+
+.hero__dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background-color: var(--color-border-strong);
+
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.hero__dot:active {
+  transform: scale(0.94);
+}
+
+.hero__dot:hover {
+  background-color: var(--color-text-secondary);
+}
+
+.hero__dot.is-active {
+  background-color: var(--color-accent);
+
+  transform: scale(1.3);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 860px) {
+  .hero__content {
+    padding-bottom: var(--space-2xl);
+  }
+}
+
+@media (max-width: 560px) {
+  .hero__title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .hero__plot {
+    font-size: var(--font-size-sm);
+
+    -webkit-line-clamp: 2;
+  }
+
+  .hero__content {
+    padding-bottom: var(--space-2xl);
+  }
+
+  .hero__controls {
+    bottom: var(--space-md);
+
+    gap: var(--space-sm);
+  }
+
+  .hero__nav-button {
+    width: 30px;
+    height: 30px;
+
+    font-size: var(--font-size-base);
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__background,
+  .hero__button,
+  .hero__nav-button,
+  .hero__dot {
+    transition: none;
+  }
+
+  .hero__nav-button:hover,
+  .hero__nav-button:active {
+    transform: none;
+  }
+}

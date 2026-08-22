@@ -1,0 +1,264 @@
+.favourite-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--color-surface-overlay);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-strong);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.favourite-button:hover:not(:disabled) {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-muted);
+  transform: scale(1.08);
+}
+
+.favourite-button:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+.favourite-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.favourite-button.is-favourited {
+  color: var(--color-accent);
+}
+
+/* Logged-out state: visually muted/"unavailable" at rest, without being
+   a truly disabled <button> — it must stay clickable so tapping it is
+   what opens the sign-up/login prompt. */
+.favourite-button--guest {
+  opacity: 0.5;
+  color: var(--color-text-muted);
+}
+
+.favourite-button--guest:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.favourite-button--sm {
+  width: 30px;
+  height: 30px;
+}
+
+.favourite-button--sm .favourite-button__icon {
+  width: 15px;
+  height: 15px;
+}
+
+.favourite-button--md {
+  width: 40px;
+  height: 40px;
+}
+
+.favourite-button--md .favourite-button__icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ==========================================================================
+   Shared modal backdrop (both dialogs below use this)
+   ========================================================================== */
+
+.favourite-confirm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  background-color: rgba(11, 12, 16, 0.72);
+  backdrop-filter: blur(2px);
+}
+
+/* ==========================================================================
+   Login/signup prompt (guests only)
+   ========================================================================== */
+
+.favourite-login-prompt {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-elevated);
+  box-shadow: var(--shadow-lg);
+  text-align: left;
+}
+
+.favourite-login-prompt__close {
+  position: absolute;
+  top: var(--space-xs);
+  right: var(--space-xs);
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-md);
+  line-height: 1;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.favourite-login-prompt__close:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-overlay);
+}
+
+.favourite-login-prompt__title {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-xs);
+  padding-right: var(--space-lg);
+}
+
+.favourite-login-prompt__text {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+  margin-bottom: var(--space-lg);
+}
+
+.favourite-login-prompt__actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.favourite-login-prompt__button {
+  flex: 1;
+  text-align: center;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.favourite-login-prompt__button:active {
+  transform: scale(0.96);
+}
+
+.favourite-login-prompt__button--primary {
+  background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
+}
+
+.favourite-login-prompt__button--primary:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.favourite-login-prompt__button--secondary {
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text-primary);
+}
+
+.favourite-login-prompt__button--secondary:hover {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-muted);
+}
+
+/* ==========================================================================
+   Remove confirmation dialog (Favourites page only)
+   ========================================================================== */
+
+.favourite-confirm-dialog {
+  width: 100%;
+  max-width: 320px;
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-elevated);
+  box-shadow: var(--shadow-lg);
+}
+
+.favourite-confirm-dialog__title {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-xs);
+}
+
+.favourite-confirm-dialog__description {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+  margin-bottom: var(--space-lg);
+}
+
+.favourite-confirm-dialog__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+}
+
+.favourite-confirm-dialog__button {
+  padding: var(--space-xs) var(--space-lg);
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.favourite-confirm-dialog__button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.favourite-confirm-dialog__button--cancel {
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text-primary);
+  background-color: transparent;
+}
+
+.favourite-confirm-dialog__button--cancel:hover {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-muted);
+}
+
+.favourite-confirm-dialog__button--confirm {
+  border: 1px solid var(--color-error);
+  color: var(--color-error);
+  background-color: rgba(224, 93, 93, 0.12);
+}
+
+.favourite-confirm-dialog__button--confirm:hover:not(:disabled) {
+  background-color: rgba(224, 93, 93, 0.22);
+}
+
+.favourite-confirm-dialog__button--confirm:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 420px) {
+  .favourite-login-prompt,
+  .favourite-confirm-dialog {
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .favourite-button:hover:not(:disabled),
+  .favourite-button:active:not(:disabled),
+  .favourite-login-prompt__button:active,
+  .favourite-confirm-dialog__button:active:not(:disabled) {
+    transform: none;
+  }
+}

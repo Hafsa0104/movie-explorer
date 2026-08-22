@@ -1,0 +1,6 @@
+/* Single global stylesheet entry point.
+   Import order matters: reset first, then design tokens, then rules that
+   use those tokens. */
+@import './styles/reset.css';
+@import './styles/variables.css';
+@import './styles/global.css';
