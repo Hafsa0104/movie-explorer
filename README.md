@@ -72,6 +72,7 @@ src/
 ├── types/
 ├── styles/
 └── assets/
+
 For this first step, focus only on:
 1. Vite + React + TypeScript setup
 2. folder structure
