@@ -483,7 +483,7 @@ Remove duplicate movies using imdbID.
 Shuffle the final movie collection.
 Keep this logic inside the Home Model.
 
-## 6. Firebase and Authentication
+## 7. Firebase and Authentication
 ### Configure Firebase
 
 ### Phase 1 — Firebase setup
@@ -587,7 +587,7 @@ After implementation:
 - tell me exactly what I need to configure in Firebase Console and .env
 Most importantly: preserve all currently working functionality and UI.
 
-## 7. Favourites Confirmation
+## 8. Favourites Confirmation
 
 Improve the Favourites page UX.
 The existing favourites functionality is already working correctly, so DO NOT rebuild or change the Firebase/favourites architecture.
@@ -646,7 +646,7 @@ Requirements:
 
 Before editing, inspect the current `FavouritesView.tsx`, `MovieCard.tsx`, `FavouriteButton.tsx`, `FavouriteButton.css`, and `FavouritesContext.tsx`. Then make the smallest necessary changes.
 
-## 8. Header Links
+## 9. Header Links
 
 Add navigation links to the existing Movie Explorer header.
 
@@ -709,7 +709,7 @@ BEHAVIOR:
    - Keep using the existing ROUTE_PATHS.favourites route.
    - Do NOT turn Favourites into an anchor section.
   
-## 9. UI and Accessibility
+## 10. UI and Accessibility
 Review the Movie Explorer application for accessibility.
 Improve:
 
@@ -749,13 +749,13 @@ Review the Movie Explorer interface for responsive behaviour.
 Improve the layout for desktop, tablet, and mobile.
 Do not remove existing functionality.
 
-## 10. Bug Fixing
+## 11. Bug Fixing
 ### Home reload
 When I search for a movie and then press Home, the Home page should reload the random movie selection instead of keeping the previous search state.
 Debug the existing implementation and make the smallest necessary change.
 Do not break Search functionality.
 
-## 11. Deployment
+## 12. Deployment
 Prepare the Movie Explorer Vite application for deployment on Vercel.
 
 Make sure:
