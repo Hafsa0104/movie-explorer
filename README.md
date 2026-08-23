@@ -11,17 +11,16 @@ Browse movies on the Home page
 - Top Rated
 - New Releases
 - Favourites
-Random movie discovery
-Search movies
-Movie details
-User authentication
-Add/remove favourite movies
-Per-user favourites
-Login/signup prompt for unauthenticated users
-Light/dark theme
-Responsive design
-Accessible interactions
-Custom Movie Explorer favicon
+- Random movie discovery
+-  Search movies
+- Movie details
+- User authentication
+- Add/remove favourite movies
+- Login/signup prompt for unauthenticated users
+- Light/dark theme
+- Responsive design
+- Accessible interactions
+- Custom Movie Explorer favicon
 
 ## 1. Project initialization
 ### Create the React project
