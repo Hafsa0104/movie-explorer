@@ -100,7 +100,7 @@ Do not implement the Hero, authentication, favourites, search UI, or other featu
 I want the movie API layer to be completed first because the upcoming Home page will depend on it.
 
 
-REQUIREMENTS
+#### REQUIREMENTS
 ==================================================
 Use the existing:
 - React
@@ -122,7 +122,7 @@ It must NOT:
 - contain UI logic
 - contain React components
 
-FUNCTIONS
+#### FUNCTIONS
 ==================================================
 Implement functions for:
 1. Searching movies
@@ -133,7 +133,7 @@ getMovieDetails(imdbID: string): Promise<MovieDetails>
 searchMovies(query: string, page?: number): Promise<Movie[]>
 If the API design requires a different function structure, choose the cleanest maintainable approach and explain why.
 
-ERROR HANDLING
+#### ERROR HANDLING
 ==================================================
 Handle all of these cases:
 - missing API key
@@ -147,7 +147,7 @@ Handle all of these cases:
 Do not assume HTTP 200 means the request succeeded because OMDb can return logical errors with HTTP 200.
 Create readable errors that the ViewModel can display to the user.
 
-TYPESCRIPT
+#### TYPESCRIPT
 ==================================================
 
 Use the existing types from:
@@ -155,7 +155,7 @@ src/types/Movie.ts
 Do not create another Movie interface.
 Avoid unnecessary `any`.
 
-URL / SECURITY
+#### URL / SECURITY
 ==================================================
 Use URLSearchParams or another safe URL-building approach.
 Do not manually concatenate unencoded search queries.
@@ -163,7 +163,7 @@ Do not hardcode the API key.
 Read it from:
 import.meta.env.VITE_OMDB_API_KEY
 
-IMPORTANT OMDb LIMITATION
+#### IMPORTANT OMDb LIMITATION
 ==================================================
 
 OMDb does not provide true "Trending", "Popular", or "Top Rated" endpoints like some other movie APIs.
@@ -171,7 +171,7 @@ Do not pretend that OMDb provides these endpoints.
 For now, create a clean service architecture that allows us to build these sections using an appropriate strategy later.
 We can discuss how to handle those sections after the basic API service is working.
 
-IMPLEMENTATION STYLE
+#### IMPLEMENTATION STYLE
 ==================================================
 Inspect the existing Movie.ts types before implementing the service.
 Preserve the existing architecture.
@@ -192,7 +192,7 @@ Do not implement the next feature yet.
 I want to make two visual/UX improvements to my Movie Explorer project.
 There are TWO things I want to improve.
 
-PART 1 — SEARCH DROPDOWN WIDTH
+### PART 1 — SEARCH DROPDOWN WIDTH
 ==================================================
 
 The navbar search is currently working correctly.
@@ -241,7 +241,7 @@ and have the dropdown use:
 if that fits the existing implementation.
 Do not blindly copy this example if my current architecture has a better solution.
 
-PART 2 — PROFESSIONAL CINEMATIC HERO BACKGROUND
+### PART 2 — PROFESSIONAL CINEMATIC HERO BACKGROUND
 ==================================================
 
 I now want the Home page hero section to look much more like a professional
@@ -274,7 +274,7 @@ Movie background 4
 Use a professional, subtle transition rather than an abrupt image swap.
 A duration around 5–8 seconds per movie is reasonable.
 
-HERO DESIGN REQUIREMENTS
+### HERO DESIGN REQUIREMENTS
 ==================================================
 The background must NOT make the text difficult to read.
 Use layered overlays/gradients.
@@ -296,7 +296,7 @@ The existing design tokens in:
 should be reused where appropriate.
 Do not introduce random colors.
 
-BACKGROUND IMAGE IMPLEMENTATION
+### BACKGROUND IMAGE IMPLEMENTATION
 ==================================================
 
 IMPORTANT:
@@ -322,7 +322,7 @@ If OMDb does not provide suitable landscape/backdrop images, do NOT pretend that
 In that case, implement the best professional solution possible with the available movie images and clearly explain the limitation afterward.
 Do NOT add another API key or another external service without asking me.
 
-CAROUSEL BEHAVIOR
+### CAROUSEL BEHAVIOR
 ==================================================
 
 The hero carousel should:
@@ -344,7 +344,7 @@ If appropriate, create or extend a Home ViewModel such as:
 
 The View should primarily render the data provided by the ViewModel.
 
-HERO CONTENT
+### HERO CONTENT
 ==================================================
 Keep the existing Movie Explorer identity.
 However, the current placeholder text:
@@ -366,7 +366,7 @@ search behavior.
 
 Do not break the current search functionality.
 
-HERO HEIGHT
+### HERO HEIGHT
 ==================================================
 
 The hero should feel like a real movie website hero section.
@@ -379,7 +379,7 @@ or
 based on the existing design.
 Make sure the navbar remains visible above it.
 
-ACCESSIBILITY
+### ACCESSIBILITY
 ==================================================
 Please consider accessibility.
 For decorative background images:
@@ -391,7 +391,7 @@ For decorative background images:
 If there is meaningful movie information associated with the current hero,
 make sure it is represented appropriately in accessible text.
 
-RESPONSIVE DESIGN
+### RESPONSIVE DESIGN
 ==================================================
 
 Desktop:
