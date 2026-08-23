@@ -61,6 +61,7 @@ Requirements:
 - reusable components
 - CSS variables/design tokens
 Create the project with a clean structure such as:
+
 src/
 ├── components/
 ├── views/
