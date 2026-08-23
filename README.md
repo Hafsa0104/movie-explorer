@@ -84,6 +84,7 @@ For this first step, focus only on:
 8. architecture needed for future Firebase integration
 Do NOT implement the movie API, authentication, favourites, hero, search, or other application features yet.
 I want complete implementation code.
+
 For every file you create:
 - provide the exact file path
 - provide the complete file contents
