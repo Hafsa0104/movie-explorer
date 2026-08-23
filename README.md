@@ -98,6 +98,7 @@ The project foundation is working.
 Now implement the OMDb movie service.
 Do not implement the Hero, authentication, favourites, search UI, or other features yet.
 I want the movie API layer to be completed first because the upcoming Home page will depend on it.
+
 ==================================================
 REQUIREMENTS
 ==================================================
@@ -239,6 +240,7 @@ and have the dropdown use:
     width: 100%;
 if that fits the existing implementation.
 Do not blindly copy this example if my current architecture has a better solution.
+
 ==================================================
 PART 2 — PROFESSIONAL CINEMATIC HERO BACKGROUND
 ==================================================
@@ -299,6 +301,7 @@ Do not introduce random colors.
 ==================================================
 BACKGROUND IMAGE IMPLEMENTATION
 ==================================================
+
 IMPORTANT:
 Before implementing this, inspect what movie image data is currently
 available from OMDb and what the existing `movieService.ts` supports.
