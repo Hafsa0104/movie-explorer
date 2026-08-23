@@ -49,6 +49,7 @@ Keep the architecture clean and scalable because this project will eventually in
 ## 2. Application structure and design
 
 ### Create the main application structure
+
 Implement the initial project foundation now.
 Requirements:
 - React
@@ -102,6 +103,7 @@ I want the movie API layer to be completed first because the upcoming Home page 
 
 #### REQUIREMENTS
 ==================================================
+
 Use the existing:
 - React
 - TypeScript
@@ -124,6 +126,7 @@ It must NOT:
 
 #### FUNCTIONS
 ==================================================
+
 Implement functions for:
 1. Searching movies
 searchMovies(query: string): Promise<Movie[]>
@@ -135,6 +138,7 @@ If the API design requires a different function structure, choose the cleanest m
 
 #### ERROR HANDLING
 ==================================================
+
 Handle all of these cases:
 - missing API key
 - missing base URL
@@ -157,6 +161,7 @@ Avoid unnecessary `any`.
 
 #### URL / SECURITY
 ==================================================
+
 Use URLSearchParams or another safe URL-building approach.
 Do not manually concatenate unencoded search queries.
 Do not hardcode the API key.
@@ -173,6 +178,7 @@ We can discuss how to handle those sections after the basic API service is worki
 
 #### IMPLEMENTATION STYLE
 ==================================================
+
 Inspect the existing Movie.ts types before implementing the service.
 Preserve the existing architecture.
 Do not modify unrelated files.
@@ -276,6 +282,7 @@ A duration around 5–8 seconds per movie is reasonable.
 
 ### HERO DESIGN REQUIREMENTS
 ==================================================
+
 The background must NOT make the text difficult to read.
 Use layered overlays/gradients.
 The design should preserve the existing dark cinematic theme and gold accent.
@@ -346,6 +353,7 @@ The View should primarily render the data provided by the ViewModel.
 
 ### HERO CONTENT
 ==================================================
+
 Keep the existing Movie Explorer identity.
 However, the current placeholder text:
     Your project foundation is ready. Features are built next.
@@ -381,6 +389,7 @@ Make sure the navbar remains visible above it.
 
 ### ACCESSIBILITY
 ==================================================
+
 Please consider accessibility.
 For decorative background images:
 - Do not make the same image information unnecessarily available to
