@@ -1031,17 +1031,3 @@ Possible future improvements include:
 * richer personalization
 
 Any future AI-powered feature should be explicitly documented separately from the AI-assisted development process.
-
----
-
-# 📌 Important Project Note
-
-Movie Explorer uses **AI as part of the development workflow**.
-
-It should not be described as an "AI-powered movie application" unless an actual AI capability is integrated into the running application.
-
-The current project is best described as:
-
-> **A React-based movie discovery application developed through an AI-assisted software development workflow.**
-
-This distinction keeps the project documentation technically accurate and transparent.
