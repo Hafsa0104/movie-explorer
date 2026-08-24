@@ -24,13 +24,12 @@ The project was developed using an **AI-assisted development workflow**. AI tool
 * 👤 Per-user favourite movies
 * 🔒 Authentication-aware favourite interactions
 * 💬 Login/signup prompt for unauthenticated users
-* 🌓 Light/dark theme
 * 📱 Responsive design
 * ♿ Accessibility-focused interactions
 * ⌨️ Keyboard-accessible UI
 * 🎨 Custom Movie Explorer branding and favicon
 * ⚡ Vite-based development and production build
-* ☁️ Firebase-backed user and favourite data
+* ☁️ Cloud Firestore
 
 ---
 
@@ -47,7 +46,7 @@ The project was developed using an **AI-assisted development workflow**. AI tool
 | Cloud Firestore         | Per-user favourite movie storage                                 |
 | CSS                     | Styling and responsive design                                    |
 | Git & GitHub            | Version control and project documentation                        |
-| AI coding assistants    | Development assistance, debugging, refinement, and documentation |
+| AI coding assistants    | Development assistance, debugging, refinement. |
 
 ---
 
