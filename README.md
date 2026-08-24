@@ -361,28 +361,24 @@ Do not add another API key or external movie service without asking first.
 
 # 4. UX Improvements
 
-## Search dropdown
+## Search dropdown width
 
-```text
-The navbar search is currently working correctly.
+I reviewed the current implementation in the browser and found that the movie search-results dropdown is wider than the search input.
 
-When I type a movie query, the search results dropdown appears underneath the navbar search.
+Please inspect the existing Header component and its CSS.
 
-The dropdown must have exactly the same width as the search input.
+Fix the issue so that:
 
-Requirements:
+- the dropdown has exactly the same width as the search input
+- it remains aligned directly underneath the input
+- it stays responsive on different screen sizes
+- it does not cause horizontal overflow
+- the existing search functionality is preserved
+- the existing visual design is preserved
 
-- exact same width as the search input
-- aligned directly underneath it
-- responsive
-- no viewport overflow
-- preserve the existing visual design
-- preserve existing scrolling behavior
+Do not use an arbitrary fixed viewport width. Use the existing search wrapper as the positioning and width reference.
 
-Inspect the existing Header and Header CSS before making changes.
-
-Prefer using the search wrapper as the positioning and width reference instead of adding arbitrary fixed widths.
-```
+Make the smallest necessary change and do not modify unrelated functionality.
 
 ## Cinematic Hero
 
@@ -612,74 +608,52 @@ For logged-out users:
 
 ---
 
-# 9. Favourites Confirmation
+# 9. Logged-Out Favourite Behavior & UX Refinement
 
-## Confirmation before removal
+I reviewed and tested the favourite button while logged out.
 
-```text
-On the /favourites page only, clicking the existing heart button must not immediately remove the movie.
+I found that clicking the favourite heart does not clearly explain to the user why the movie cannot be saved.
 
-Instead, show an in-app confirmation UI:
-
-"Remove from Favourites?"
-
-"Are you sure you want to remove this movie from your favourites?"
-
-Buttons:
-
-- Cancel
-- Remove
+Please improve the existing behaviour.
 
 Requirements:
 
-- reuse the existing favourite removal/toggle logic
+- When a logged-out user clicks an empty favourite heart, do not save anything to Firestore.
+- Do not change the movie's favourite state.
+- Show a clear and friendly login/signup message.
+- Use messaging similar to:
+  "Want to save this movie? ❤️"
+  "Log in or sign up to add it to your favourites."
+- Keep authenticated favourite behaviour unchanged.
+- Do not duplicate the existing Firestore logic.
+- Preserve the current UI design.
+
+Inspect the existing implementation first and make the smallest necessary change.
+
+# 10. Favourites Confirmation
+
+## Confirmation before removal
+
+I reviewed the Favourites page and found that clicking the heart removes a movie immediately.
+
+I want to prevent accidental removal without changing the existing favourite data layer.
+
+Modify the existing implementation so that on the Favourites page:
+
+- clicking the heart opens an in-app confirmation
+- display:
+  "Remove from Favourites?"
+  "Are you sure you want to remove this movie from your favourites?"
+- provide Cancel and Remove buttons
+- Cancel leaves the movie unchanged
+- Remove uses the existing favourite removal logic
 - do not create duplicate Firestore removal logic
 - do not use window.confirm()
-- Cancel leaves the movie unchanged
-- Remove performs the existing removal operation
-- Escape cancels the confirmation
-- provide proper keyboard accessibility
-- provide appropriate ARIA attributes
 - keep the existing heart position
-- keep the confirmation responsive
+- preserve the existing page design
 - do not modify unrelated functionality
-```
 
----
-
-# 10. Logged-Out Favourite Interaction
-
-```text
-Improve the favourite interaction for unauthenticated users.
-
-When a logged-out user clicks an empty favourite heart:
-
-- do not change the movie's favourite state
-- do not save anything to Firebase
-- show a friendly login/signup prompt
-
-Use messaging similar to:
-
-"Want to save this movie? ❤️"
-
-"Log in or sign up to add it to your favourites."
-
-The heart should appear disabled/inactive for the logged-out state while still providing an understandable interaction.
-
-Authenticated users should continue to have the normal behaviour:
-
-Empty heart → add favourite
-
-Filled heart → remove favourite
-
-On the Favourites page:
-
-Filled heart → confirmation
-
-Cancel → movie remains
-
-Remove → existing favourite removal logic runs
-```
+Make the smallest necessary change after inspecting the current implementation.
 
 ---
 
@@ -835,7 +809,28 @@ Preserve the current architecture.
 
 ---
 
-# 15. Deployment
+# 15. Hero Carousel Optimization
+I reviewed the Hero carousel implementation and noticed that changing the hero movie can trigger unnecessary requests for movie images.
+
+Refactor the implementation so that the Hero loads a small collection of movie data once and rotates through the already-loaded movies instead of requesting a new movie image on every transition.
+
+Requirements:
+
+- avoid repeated API requests for every carousel transition
+- reuse already-loaded movie data
+- maintain the smooth fade transition
+- display one hero movie at a time
+- prevent layout jumping
+- clean up the carousel timer when the component unmounts
+- preserve the existing design
+- preserve existing search and movie functionality
+- do not introduce another API or dependency
+
+Make the smallest performance-focused refactoring necessary.
+
+---
+
+# 16. Deployment
 
 ## Prepare for Vercel
 
