@@ -759,7 +759,27 @@ Do not change application functionality unnecessarily.
 
 Preserve the existing visual design.
 ```
+## 10.1. Accessibility Refinement
 
+```
+I reviewed and tested the favourite-removal confirmation interaction and found that it needed additional keyboard and screen-reader accessibility improvements.
+
+Please inspect the existing confirmation implementation and improve only its accessibility.
+
+Requirements:
+
+- support Escape to cancel
+- manage focus appropriately when the confirmation opens
+- provide appropriate ARIA attributes
+- provide accessible button labels
+- maintain visible focus states
+- preserve the existing visual design
+- do not change the underlying favourite removal logic
+- do not modify unrelated functionality
+
+Make the smallest necessary accessibility-focused change.
+
+```
 ---
 
 # 13. Responsive Design
