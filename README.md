@@ -742,7 +742,44 @@ Improve:
 - dialog accessibility
 - ARIA attributes
 - colour contrast
-- reduced-motion support
+
+### 1. Page SEO
+
+* Add unique `<title>` and `<meta name="description">` for each route.
+* Make movie-detail titles/descriptions dynamic when possible.
+
+### 2. Open Graph (OG)
+
+Add:
+
+* `og:title`
+* `og:description`
+* `og:image`
+* `og:url`
+* `og:type`
+
+Use the movie poster for `og:image` on movie-detail pages when available.
+
+### 3. Semantic HTML
+
+Improve structure using appropriate semantic elements such as:
+`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, and `<footer>`.
+
+### 4. Client-Side Rendering
+
+Keep the current **Vite + React SPA** architecture.
+**Do not migrate to Next.js, SSR, or prerendering.** Apply only SEO improvements that are practical within the existing architecture.
+
+### 5. Image Performance
+
+* Keep/use `loading="lazy"` for non-critical images.
+* Preserve the existing `aspect-ratio` containers.
+* Add explicit image dimensions where appropriate to reduce **Cumulative Layout Shift (CLS)**.
+* Ensure meaningful `alt` text for movie posters.
+
+### 6. WebP/AVIF
+
+Do **not** convert OMDb images because the app uses external OMDb URLs and does not control those image files.
 
 Do not change application functionality unnecessarily.
 
