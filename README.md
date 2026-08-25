@@ -10,28 +10,28 @@ The project was developed using an **AI-assisted development workflow**. AI tool
 
 ## ✨ Features
 
-🏠 Cinematic Home page
-🎬 Hero movie section with cinematic background
-🔥 Trending Movies
-⭐ Popular Movies
-🏆 Top Rated Movies
-🆕 New Releases
-🔎 Movie search
-🎞️ Movie details
-❤️ Add and remove favourite movies
-🔐 User registration and login
-🚪 Logout functionality
-👤 Per-user favourite movies
-🔒 Authentication-aware favourite interactions
-💬 Login/signup prompt for unauthenticated users
-⚠️ Confirmation before removing favourites
-📱 Responsive design for desktop, tablet, and mobile
-♿ Accessibility-focused interactions
-⌨️ Keyboard-accessible confirmation interaction
-🎨 Custom Movie Explorer branding and favicon
-⚡ Vite-based development and production build
-☁️ Cloud Firestore integration
-🔑 Environment-variable-based API and Firebase configuration
+* 🏠 Cinematic Home page
+* 🎬 Hero movie section with cinematic background
+* 🔥 Trending Movies
+* ⭐ Popular Movies
+* 🏆 Top Rated Movies
+* 🆕 New Releases
+* 🔎 Movie search
+* 🎞️ Movie details
+* ❤️ Add and remove favourite movies
+* 🔐 User registration and login
+* 🚪 Logout functionality
+* 👤 Per-user favourite movies
+* 🔒 Authentication-aware favourite interactions
+* 💬 Login/signup prompt for unauthenticated users
+* ⚠️ Confirmation before removing favourites
+* 📱 Responsive design for desktop, tablet, and mobile
+* ♿ Accessibility-focused interactions
+* ⌨️ Keyboard-accessible confirmation interaction
+* 🎨 Custom Movie Explorer branding and favicon
+* ⚡ Vite-based development and production build
+* ☁️ Cloud Firestore integration
+* 🔑 Environment-variable-based API and Firebase configuration
 
 ---
 
