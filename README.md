@@ -657,30 +657,15 @@ Preserve the existing architecture and functionality.
 
 ---
 
-# 12. Accessibility
-
-```text
-Review the Movie Explorer application for accessibility.
-
-Improve:
-
-- semantic HTML
-- button labels
-- image alt text
-- keyboard navigation
-- focus states
-- form labels
-- dialog accessibility
-- ARIA attributes
-- colour contrast
+# 12. SEO CONTENT
 
 ### 1. Page SEO
-
+```
 * Add unique `<title>` and `<meta name="description">` for each route.
 * Make movie-detail titles/descriptions dynamic when possible.
-
+```
 ### 2. Open Graph (OG)
-
+```
 Add:
 
 * `og:title`
@@ -690,33 +675,33 @@ Add:
 * `og:type`
 
 Use the movie poster for `og:image` on movie-detail pages when available.
-
+```
 ### 3. Semantic HTML
-
+```
 Improve structure using appropriate semantic elements such as:
 `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, and `<footer>`.
-
+```
 ### 4. Client-Side Rendering
-
+```
 Keep the current **Vite + React SPA** architecture.
 **Do not migrate to Next.js, SSR, or prerendering.** Apply only SEO improvements that are practical within the existing architecture.
-
+```
 ### 5. Image Performance
-
+```
 * Keep/use `loading="lazy"` for non-critical images.
 * Preserve the existing `aspect-ratio` containers.
 * Add explicit image dimensions where appropriate to reduce **Cumulative Layout Shift (CLS)**.
 * Ensure meaningful `alt` text for movie posters.
-
+```
 ### 6. WebP/AVIF
-
+```
 Do **not** convert OMDb images because the app uses external OMDb URLs and does not control those image files.
 
 Do not change application functionality unnecessarily.
 
 Preserve the existing visual design.
 ```
-## 10.1. Accessibility Refinement
+## 13. Accessibility Refinement
 
 ```
 I reviewed and tested the favourite-removal confirmation interaction and found that it needed additional keyboard and screen-reader accessibility improvements.
@@ -739,7 +724,7 @@ Make the smallest necessary accessibility-focused change.
 ```
 ---
 
-# 13. Responsive Design
+# 14. Responsive Design
 
 ```text
 Review the Movie Explorer interface for responsive behaviour.
@@ -765,25 +750,6 @@ Do not remove existing functionality.
 
 Preserve the existing Movie Explorer visual identity.
 ```
-
----
-
-# 14. Bug Fixing
-
-## Home reload bug
-
-```text
-When I search for a movie and then press Home, the Home page should reload the random movie selection instead of keeping the previous search state.
-
-Debug the existing implementation.
-
-Make the smallest necessary change.
-
-Do not break Search functionality.
-
-Preserve the current architecture.
-```
-
 ---
 
 # 15. Hero Carousel Optimization
@@ -835,7 +801,7 @@ After implementation:
 
 ---
 
-# 🧪 Testing and Verification
+# 17. 🧪 Testing and Verification
 
 Before considering a feature complete, the project should be checked for:
 
@@ -859,7 +825,7 @@ npm run build
 
 ---
 
-# 🔐 Environment Variables
+# 18. 🔐 Environment Variables
 
 The project uses environment variables for external configuration.
 
@@ -883,7 +849,7 @@ Use `.env.example` for placeholder values and keep the real `.env` file out of v
 
 ---
 
-# 📁 Project Structure
+# 19. 📁 Project Structure
 
 The project follows a feature-oriented React architecture.
 
@@ -918,7 +884,7 @@ APIs / Firebase
 
 ---
 
-# 🔄 Development Approach
+# 20. 🔄 Development Approach
 
 The application was developed incrementally rather than attempting to build the entire application in one step.
 
@@ -958,7 +924,7 @@ This incremental approach made it easier to test each feature, identify problems
 
 ---
 
-# Manual Improvements, Critical Review & Engineering Decisions
+# 21. Manual Improvements, Critical Review & Engineering Decisions
 
 AI accelerated my development, but I treated its output as a starting point rather than final code.
 I inspected the implementation, tested the application, identified issues, and refined the solution
@@ -1010,7 +976,7 @@ Reason: This reduces unnecessary API requests and improves performance.
 
 ---
 
-# 📚 What This Project Demonstrates
+# 22. 📚 What This Project Demonstrates
 
 Movie Explorer demonstrates practical experience with:
 
@@ -1037,7 +1003,7 @@ Movie Explorer demonstrates practical experience with:
 
 ---
 
-# 🚀 Future Improvements
+# 23. 🚀 Future Improvements
 
 Possible future improvements include:
 
