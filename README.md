@@ -37,7 +37,6 @@ The project was developed using an **AI-assisted development workflow**. AI tool
 
 # 🛠️ Technology Stack
 
-```text
 <div style="margin-left: 40px;">
 
 | Technology | Purpose |
@@ -54,7 +53,6 @@ The project was developed using an **AI-assisted development workflow**. AI tool
 | AI coding assistants | Development assistance, debugging, refinement, and review |
 
 </div>
-```
 ---
 
 # 🏗️ Architecture
