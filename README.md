@@ -53,14 +53,12 @@ AI coding assistants	Development assistance, debugging, refinement, and review
 
 # 🏗️ Architecture
 
-Movie Explorer follows a **strict MVVM-inspired architecture** to keep UI rendering, application state, business logic, and external services separated.
+Movie Explorer follows a **MVVM-style architecture** that separates UI rendering, application state, and external communication.
 
 ```text
 View
   ↓
 ViewModel
-  ↓
-Model
   ↓
 Service
   ↓
@@ -69,14 +67,14 @@ External API / Firebase
 
 ### View
 
-Responsible primarily for:
+View are responsible primarily for:
 
 * Rendering UI
 * Displaying data
 * Connecting user interactions to ViewModel actions
 * Accessibility markup
 
-Views should not contain direct API or Firebase calls.
+Views do not make direct OMDb or Firebase calls.
 
 ### ViewModel
 
@@ -89,26 +87,49 @@ Responsible for:
 * Calling Model functions
 * Preparing data for Views
 
-### Model
-
-Responsible for:
-
-* Feature-specific business logic
-* Data preparation
-* Validation
-* Coordinating with services
-
 ### Services
 
 Responsible for external communication such as:
 
-* OMDb API requests
-* Firebase Authentication
-* Cloud Firestore operations
+Examples include:
+* movieService.ts → OMDb API communication
+* authService.ts → Firebase Authentication
+* favouritesService.ts → Cloud Firestore favourite operations
+
+### Types
+
+Shared TypeScript types describe the shape of application data.
+For example, movie-related interfaces represent data such as:
+
+* Movie information
+* Movie details
+* Favourite movie information
+
+These are TypeScript data types, not a separate Model layer.
+
+### Context
+
+Application-wide state such as authentication state is provided through React Context where appropriate.
 
 ### Components
 
-Reusable UI components are kept separate so functionality can be shared across pages.
+Reusable UI components are separated from page-level Views so common elements such as movie cards, navigation, buttons, and layout elements can be reused consistently.
+
+---
+
+# 🎥 Movie Data and OMDb API
+
+Movie Explorer uses the OMDb API for movie information.
+
+The application supports operations such as:
+
+* Movie searching
+* Movie details
+* Movie information used by Home-page collections
+
+OMDb does not provide dedicated real-time endpoints for categories such as Trending, Popular, or Top Rated.
+Therefore, Movie Explorer uses curated movie-title collections and retrieves those movies through supported OMDb search operations.
+The final implementation does not use randomized generic keyword discovery as its Home-page strategy.
 
 ---
 
@@ -120,60 +141,22 @@ The AI-assisted workflow was used for:
 
 * Project scaffolding
 * React and TypeScript implementation
-* MVVM architecture
+* Architecture planning
 * API service development
 * Firebase integration
 * Authentication implementation
 * Favourites functionality
-* UI improvements
+* UI refinements
 * Responsive design
 * Accessibility improvements
 * Debugging
 * Bug fixing
 * Refactoring
+* Performance improvements
 * Code review
 * Deployment preparation
-* README documentation
 
-The development process involved giving the AI specific requirements, reviewing its proposed implementation, testing the result, identifying problems, and giving additional prompts when changes were required.
-
-### AI Development Workflow
-
-```text
-Requirement
-     ↓
-AI Prompt
-     ↓
-Generated / Suggested Implementation
-     ↓
-Code Review
-     ↓
-Manual Testing
-     ↓
-Bug Identification
-     ↓
-Follow-up Prompt
-     ↓
-Refinement
-     ↓
-Build / TypeScript / Lint Checks
-     ↓
-Final Implementation
-```
-
-### Important principle
-
-AI-generated code was not treated as automatically correct.
-
-The project development process focused on:
-
-* Understanding what the AI generated
-* Checking whether it matched the requirements
-* Testing functionality
-* Finding and correcting bugs
-* Preserving the existing architecture
-* Avoiding unnecessary changes
-* Verifying the final implementation
+AI suggestions were not automatically accepted. The implementation was reviewed, tested, and refined throughout development.
 
 ---
 
@@ -199,16 +182,22 @@ Set up the project so it is ready for further development.
 Do not add unnecessary libraries or functionality yet.
 ```
 
+# 2. Application Foundation
+
+```text
+Implement the initial Movie Explorer project foundation using React, TypeScript, Vite, React Router, reusable components, CSS variables/design tokens, and environment-variable setup.
+Focus on the project structure and routing foundation before implementing the movie API, authentication, favourites, and other application features.
+```
+
 ## Establish the project architecture
 
 ```text
-Set up the Movie Explorer project using a strict MVVM architecture.
+Set up the Movie Explorer project using MVVM architecture.
 
 Use this separation:
 
 - Views are responsible only for rendering UI.
 - ViewModels are responsible for React state and user interactions.
-- Models are responsible for business logic.
 - Services are responsible for external APIs and Firebase communication.
 - Components should be reusable.
 
@@ -233,7 +222,6 @@ Requirements:
 - Vite
 - React Router
 - MVVM architecture
-- Firebase-ready structure
 - OMDb API-ready structure
 - reusable components
 - CSS variables/design tokens
@@ -452,53 +440,17 @@ Do not call the OMDb service directly from the View.
 
 Do not render JSX inside the ViewModel.
 ```
-
-## Create Home Model
-
-```text
-Create HomeModel.ts for Movie Explorer.
-
-The Model should contain Home-specific business logic and communicate with the OMDb service.
-
-Keep API communication outside the View and ViewModel.
-
-Create the functions required for loading the Home movie collections.
-```
-
 ---
 
-# 6. Initial Movie Discovery
-
-## Load movies automatically
-
+# 6. Cinematic Hero
 ```text
-When the Movie Explorer Home page opens, automatically load a selection of movies instead of showing an empty page.
 
-Use predefined search keywords such as:
+Improve the Home page Hero section so it looks like a professional movie discovery website.
+Add a cinematic movie background that changes automatically with a smooth fade transition.
+Avoid repeated API requests for every transition, clean up timers when the component unmounts,
+preserve the existing search functionality and dark cinematic theme, and maintain readable text
+contrast across desktop, tablet, and mobile.
 
-Batman
-Avengers
-Harry Potter
-Star Wars
-Spider-Man
-Marvel
-Disney
-Matrix
-Lord of the Rings
-Fast
-Mission Impossible
-Pixar
-Horror
-Comedy
-Action
-
-Use multiple API searches and combine the results.
-
-Remove duplicate movies using imdbID.
-
-Shuffle the final movie collection.
-
-Keep this logic inside the Home Model.
 ```
 
 ---
@@ -955,8 +907,6 @@ Views
   ↓
 ViewModels
   ↓
-Models
-  ↓
 Services
   ↓
 APIs / Firebase
@@ -1004,39 +954,55 @@ This incremental approach made it easier to test each feature, identify problems
 
 ---
 
-# 🤖 AI Usage and Human Review
+# Manual Improvements, Critical Review & Engineering Decisions
 
-AI was used throughout the development process as an **AI-assisted coding and problem-solving tool**.
+AI accelerated my development, but I treated its output as a starting point rather than final code.
+I inspected the implementation, tested the application, identified issues, and refined the solution
+based on the project's actual requirements.
 
-Examples of AI assistance included:
+#### 1. Fixed the search dropdown layout
+During browser testing, I noticed that the search-results dropdown was wider than the search input.
+I identified the CSS relationship causing the problem and refined the search wrapper/dropdown structure 
+so the dropdown matches the input width and remains responsive.
 
-* generating initial implementation suggestions
-* creating React components
-* implementing TypeScript logic
-* suggesting MVVM structures
-* implementing API service functions
-* assisting with Firebase integration
-* debugging runtime and TypeScript problems
-* improving CSS and responsive layouts
-* improving accessibility
-* reviewing existing implementations
-* suggesting bug fixes
-* preparing deployment configuration
-* generating and organizing documentation
+#### 2. Improved unauthenticated favourite behavior
+I identified that a logged-out user needed clear feedback when clicking the favourite heart. 
+The final interaction explains that login/signup is required instead of silently failing, 
+improving the user experience without changing the underlying favourite system.
 
-However, AI output was reviewed before being accepted.
+#### 3. Added safe favourite removal
+I identified the risk of accidental removal on the Favourites page and introduced an in-app 
+confirmation flow with Remove and Cancel actions. 
 
-The development process required manually checking:
+Remove from Favourites? → [Remove] [Cancel]
 
-* whether generated code matched the requirements
-* whether the architecture remained consistent
-* whether existing functionality was preserved
-* whether the implementation actually worked
-* whether errors were introduced
-* whether accessibility requirements were satisfied
-* whether the production build succeeded
+The existing favourite logic is reused rather than creating duplicate Firestore logic.
 
-This means the project demonstrates **AI-assisted software development**, while the developer remains responsible for understanding, reviewing, testing, and integrating the implementation.
+#### 4. Reviewed accessibility beyond visual appearance
+I refined the confirmation interaction to support keyboard users, including Escape-to-cancel, 
+focus handling, ARIA attributes, and accessible button labels.
+
+### 5. Verified API assumptions
+I reviewed the capabilities of OMDb rather than assuming it provided dedicated Trending,
+Popular, or Top Rated endpoints. The final implementation uses supported OMDb searches 
+with curated movie collections.
+
+### 6. Iterated on visual and responsive issues
+I tested the Hero, search interface, movie cards, and favourite interactions across 
+screen sizes and refined spacing, overlays, readability, and responsive behavior 
+where the initial implementation did not meet the intended UX.
+
+### 7. Improved Favourite Login/Signup Behavior
+The original favourite interaction did not clearly explain what happened when a logged-out user clicked the heart.
+I changed it so the user receives a clear prompt:
+“Want to save this movie? Log in or sign up to add it to your favourites.”
+The movie is only saved to Firestore after authentication.
+Reason: I improved the UX instead of simply disabling the feature.
+
+### 8. Optimized the Hero Carousel
+Instead of requesting a new movie image every time the hero changed, I changed the implementation to load a small collection of movie images and rotate through the already-loaded data.
+I also ensured the carousel timer is cleaned up when the component unmounts.
+Reason: This reduces unnecessary API requests and improves performance.
 
 ---
 
