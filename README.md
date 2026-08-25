@@ -1,7 +1,5 @@
 # 🎬 Movie Explorer
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#-movie-explorer)
-
 A responsive movie discovery web application built with **React, TypeScript, Vite, React Router, OMDb API, Firebase Authentication, and Cloud Firestore**.
 
 Movie Explorer allows users to discover movies through curated movie sections, search for titles, view movie details, and manage their personal favourite movies.
@@ -11,8 +9,6 @@ The project was developed using an **AI-assisted development workflow**. AI tool
 ---
 
 ## ✨ Features
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#-features)
 
 * 🏠 Cinematic Home page
 * 🎬 Hero movie section with cinematic background
@@ -40,8 +36,6 @@ The project was developed using an **AI-assisted development workflow**. AI tool
 ---
 
 # 🛠️ Technology Stack
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#%EF%B8%8F-technology-stack)
 
 | **TechnologyPurpose**   |                                                           |
 | ----------------------- | --------------------------------------------------------- |
@@ -79,8 +73,6 @@ External API / Firebase
 
 ### View
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#view)
-
 View are responsible primarily for:
 
 * Rendering UI
@@ -91,8 +83,6 @@ View are responsible primarily for:
 Views do not make direct OMDb or Firebase calls.
 
 ### ViewModel
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#viewmodel)
 
 Responsible for:
 
@@ -105,8 +95,6 @@ Responsible for:
 
 ### Services
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#services)
-
 Responsible for external communication such as:
 
 Examples include:
@@ -116,8 +104,6 @@ Examples include:
 * favouritesService.ts → Cloud Firestore favourite operations
 
 ### Types
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#types)
 
 Shared TypeScript types describe the shape of application data. For example, movie-related interfaces represent data such as:
 
@@ -129,21 +115,16 @@ These are TypeScript data types, not a separate Model layer.
 
 ### Context
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#context)
-
 Application-wide state such as authentication state is provided through React Context where appropriate.
 
 ### Components
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#components)
-
-Reusable UI components are separated from page-level Views so common elements such as movie cards, navigation, buttons, and layout elements can be reused consistently.
+Reusable UI components are separated from page-level Views so common elements such as movie cards, 
+navigation, buttons, and layout elements can be reused consistently.
 
 ---
 
 # 🎥 Movie Data and OMDb API
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#-movie-data-and-omdb-api)
 
 Movie Explorer uses the OMDb API for movie information.
 
@@ -153,13 +134,13 @@ The application supports operations such as:
 * Movie details
 * Movie information used by Home-page collections
 
-OMDb does not provide dedicated real-time endpoints for categories such as Trending, Popular, or Top Rated. Therefore, Movie Explorer uses curated movie-title collections and retrieves those movies through supported OMDb search operations. The final implementation does not use randomized generic keyword discovery as its Home-page strategy.
+OMDb does not provide dedicated real-time endpoints for categories such as Trending, Popular, or Top Rated. 
+Therefore, Movie Explorer uses curated movie-title collections and retrieves those movies through supported 
+OMDb search operations. The final implementation does not use randomized generic keyword discovery as its Home-page strategy.
 
 ---
 
 # 🤖 AI-Assisted Development
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#-ai-assisted-development)
 
 AI was used as a **development partner**, not as a replacement for understanding or reviewing the code.
 
@@ -188,8 +169,6 @@ AI suggestions were not automatically accepted. The implementation was reviewed,
 
 # 📝 Build Prompts
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#-build-prompts)
-
 This section documents the prompts used during the development of Movie Explorer.
 
 The prompts are listed in development order to show how the project evolved from its initial structure into the completed application.
@@ -198,11 +177,7 @@ The prompts are listed in development order to show how the project evolved from
 
 # 1. Project Initialization
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#1-project-initialization)
-
 ## Create the React project
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#create-the-react-project)
 
 ```
 Create a new Movie Explorer application using Vite, React, and TypeScript.
@@ -215,11 +190,7 @@ Do not add unnecessary libraries or functionality yet.
 
 ```
 
-**svg**
-
 # 2. Application Foundation
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#2-application-foundation)
 
 ```
 Implement the initial Movie Explorer project foundation using React, TypeScript, Vite, React Router, reusable components, CSS variables/design tokens, and environment-variable setup.
@@ -227,11 +198,7 @@ Focus on the project structure and routing foundation before implementing the mo
 
 ```
 
-**svg**
-
 ## Establish the project architecture
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#establish-the-project-architecture)
 
 ```
 Set up the Movie Explorer project using MVVM architecture.
@@ -249,17 +216,11 @@ Keep the architecture clean and scalable because this project will eventually in
 
 ```
 
-**svg**
-
 ---
 
 # 3. Application Structure and Design
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#3-application-structure-and-design)
-
 ## Create the main application structure
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#create-the-main-application-structure)
 
 ```
 Implement the initial project foundation now.
@@ -310,18 +271,11 @@ For every file you create:
 - do not use placeholders or pseudocode
 
 ```
-
-**svg**
-
 ---
 
 # 4. OMDb API Integration
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#4-omdb-api-integration)
-
 ## Create the OMDb service
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#create-the-omdb-service)
 
 ```
 The project foundation is working.
@@ -361,12 +315,7 @@ It must NOT:
 - contain React components
 
 ```
-
-**svg**
-
 ## API functions
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#api-functions)
 
 ```
 Implement functions for:
@@ -396,11 +345,7 @@ Use URLSearchParams or another safe URL-building approach.
 
 ```
 
-**svg**
-
 ## OMDb limitation
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#omdb-limitation)
 
 ```
 OMDb does not provide true Trending, Popular, or Top Rated endpoints.
@@ -412,18 +357,11 @@ Create a clean service architecture that allows these sections to be implemented
 Do not add another API key or external movie service without asking first.
 
 ```
-
-**svg**
-
 ---
 
 # 5. UX Improvements
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#5-ux-improvements)
-
 ## Search dropdown width
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#search-dropdown-width)
 
 I reviewed the current implementation in the browser and found that the movie search-results dropdown is wider than the search input.
 
@@ -443,8 +381,6 @@ Do not use an arbitrary fixed viewport width. Use the existing search wrapper as
 Make the smallest necessary change and do not modify unrelated functionality.
 
 ## Cinematic Hero
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#cinematic-hero)
 
 ```
 Improve the Home page Hero section so it looks like a professional movie discovery website.
@@ -473,17 +409,11 @@ Do not add another API key or external service without asking.
 
 ```
 
-**svg**
-
 ---
 
 # 6. Home Page
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#6-home-page)
-
 ## Create Home View
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#create-home-view)
 
 ```
 Create the Home page for Movie Explorer.
@@ -504,11 +434,7 @@ Do not call APIs directly from the View.
 
 ```
 
-**svg**
-
 ## Create Home ViewModel
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#create-home-viewmodel)
 
 ```
 Create a Home ViewModel for Movie Explorer.
@@ -528,14 +454,9 @@ Do not call the OMDb service directly from the View.
 Do not render JSX inside the ViewModel.
 
 ```
-
-**svg**
-
 ---
 
 # 7. Cinematic Hero
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#7-cinematic-hero)
 
 ```
 
@@ -547,18 +468,11 @@ contrast across desktop, tablet, and mobile.
 
 
 ```
-
-**svg**
-
 ---
 
 # 8. Firebase and Authentication
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#8-firebase-and-authentication)
-
 ## Firebase setup
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#firebase-setup)
 
 ```
 Set up Firebase in a clean way that fits the existing project architecture.
@@ -575,11 +489,7 @@ Do not expose or commit secret configuration unnecessarily.
 
 ```
 
-**svg**
-
 ## Authentication
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#authentication)
 
 ```
 Implement:
@@ -599,11 +509,7 @@ Authentication logic should NOT be placed directly inside JSX components.
 
 ```
 
-**svg**
-
 ## Header authentication state
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#header-authentication-state)
 
 ```
 Update the existing Header only where necessary.
@@ -621,17 +527,11 @@ Do not break the existing Search functionality.
 
 ```
 
-**svg**
-
 ---
 
 # 9. Favourites
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#9-favourites)
-
 ## Per-user favourites
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#per-user-favourites)
 
 ```
 Allow authenticated users to favourite movies.
@@ -660,11 +560,7 @@ Do not place Firebase calls directly inside presentational components.
 
 ```
 
-**svg**
-
 ## Favourites page
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#favourites-page)
 
 ```
 Create a /favourites route.
@@ -683,13 +579,9 @@ For logged-out users:
 
 ```
 
-**svg**
-
 ---
 
 # 10. Logged-Out Favourite Behavior & UX Refinement
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#10-logged-out-favourite-behavior--ux-refinement)
 
 I reviewed and tested the favourite button while logged out.
 
@@ -711,11 +603,7 @@ Inspect the existing implementation first and make the smallest necessary change
 
 # 11. Favourites Confirmation
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#11-favourites-confirmation)
-
 ## Confirmation before removal
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#confirmation-before-removal)
 
 I reviewed the Favourites page and found that clicking the heart removes a movie immediately.
 
@@ -739,8 +627,6 @@ Make the smallest necessary change after inspecting the current implementation.
 ---
 
 # 12. Header Navigation
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#12-header-navigation)
 
 ```
 Add navigation links to the existing Movie Explorer Header.
@@ -781,18 +667,11 @@ Inspect the actual existing files before making changes.
 Preserve the existing architecture and functionality.
 
 ```
-
-**svg**
-
 ---
 
 # 13. SEO CONTENT
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#13-seo-content)
-
 ### 1. Page SEO
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#1-page-seo)
 
 ```
 * Add unique `<title>` and `<meta name="description">` for each route.
@@ -800,11 +679,8 @@ Preserve the existing architecture and functionality.
 
 ```
 
-**svg**
-
 ### 2. Open Graph (OG)
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#2-open-graph-og)
 
 ```
 Add:
@@ -819,11 +695,7 @@ Use the movie poster for `og:image` on movie-detail pages when available.
 
 ```
 
-**svg**
-
 ### 3. Semantic HTML
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#3-semantic-html)
 
 ```
 Improve structure using appropriate semantic elements such as:
@@ -831,23 +703,14 @@ Improve structure using appropriate semantic elements such as:
 
 ```
 
-**svg**
-
 ### 4. Client-Side Rendering
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#4-client-side-rendering)
 
 ```
 Keep the current **Vite + React SPA** architecture.
 **Do not migrate to Next.js, SSR, or prerendering.** Apply only SEO improvements that are practical within the existing architecture.
 
 ```
-
-**svg**
-
 ### 5. Image Performance
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#5-image-performance)
 
 ```
 * Keep/use `loading="lazy"` for non-critical images.
@@ -857,11 +720,7 @@ Keep the current **Vite + React SPA** architecture.
 
 ```
 
-**svg**
-
 ### 6. WebP/AVIF
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#6-webpavif)
 
 ```
 Do **not** convert OMDb images because the app uses external OMDb URLs and does not control those image files.
@@ -872,11 +731,7 @@ Preserve the existing visual design.
 
 ```
 
-**svg**
-
 ## 14. Accessibility Refinement
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#14-accessibility-refinement)
 
 ```
 I reviewed and tested the favourite-removal confirmation interaction and found that it needed additional keyboard and screen-reader accessibility improvements.
@@ -899,13 +754,9 @@ Make the smallest necessary accessibility-focused change.
 
 ```
 
-**svg**
-
 ---
 
 # 15. Responsive Design
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#15-responsive-design)
 
 ```
 Review the Movie Explorer interface for responsive behaviour.
@@ -937,8 +788,6 @@ Preserve the existing Movie Explorer visual identity.
 
 # 16. Hero Carousel Optimization
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#16-hero-carousel-optimization)
-
 I reviewed the Hero carousel implementation and noticed that changing the hero movie can trigger unnecessary requests for movie images.
 
 Refactor the implementation so that the Hero loads a small collection of movie data once and rotates through the already-loaded movies instead of requesting a new movie image on every transition.
@@ -961,11 +810,7 @@ Make the smallest performance-focused refactoring necessary.
 
 # 17. Deployment
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#17-deployment)
-
 ## Prepare for Vercel
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#prepare-for-vercel)
 
 ```
 Prepare the Movie Explorer Vite application for deployment on Vercel.
@@ -990,13 +835,9 @@ After implementation:
 
 ```
 
-**svg**
-
 ---
 
 # 18. 🧪 Testing and Verification
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#18--testing-and-verification)
 
 Before considering a feature complete, the project should be checked for:
 
@@ -1018,13 +859,9 @@ npx oxlint
 npm run build
 ```
 
-**svg**
-
 ---
 
 # 19. 🔐 Environment Variables
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#19--environment-variables)
 
 The project uses environment variables for external configuration.
 
@@ -1041,9 +878,6 @@ VITE_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
 VITE_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
 VITE_FIREBASE_APP_ID=your_firebase_app_id
 ```
-
-**svg**
-
 Real credentials should never be committed to GitHub.
 
 Use `.env.example` for placeholder values and keep the real `.env` file out of version control.
@@ -1051,8 +885,6 @@ Use `.env.example` for placeholder values and keep the real `.env` file out of v
 ---
 
 # 20. 📁 Project Structure
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#20--project-structure)
 
 The project follows a feature-oriented React architecture.
 
@@ -1074,8 +906,6 @@ src/
 
 ```
 
-**svg**
-
 The exact structure may evolve during development, but the main architectural principle remains:
 
 ```
@@ -1089,13 +919,9 @@ APIs / Firebase
 
 ```
 
-**svg**
-
 ---
 
 # 21. 🔄 Development Approach
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#21--development-approach)
 
 The application was developed incrementally rather than attempting to build the entire application in one step.
 
@@ -1132,35 +958,32 @@ Deployment
 
 ```
 
-**svg**
-
 This incremental approach made it easier to test each feature, identify problems, and preserve previously working functionality.
 
 ---
 
 # 22. Manual Improvements, Critical Review & Engineering Decisions
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#22-manual-improvements-critical-review--engineering-decisions)
-
-AI accelerated my development, but I treated its output as a starting point rather than final code. I inspected the implementation, tested the application, identified issues, and refined the solution based on the project's actual requirements.
+AI accelerated my development, but I treated its output as a starting point rather than final code. 
+I inspected the implementation, tested the application, identified issues, and refined the solution 
+based on the project's actual requirements.
 
 #### 1. Fixed the search dropdown layout
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#1-fixed-the-search-dropdown-layout)
-
-During browser testing, I noticed that the search-results dropdown was wider than the search input. I identified the CSS relationship causing the problem and refined the search wrapper/dropdown structure so the dropdown matches the input width and remains responsive.
+During browser testing, I noticed that the search-results dropdown was wider than the search input.
+I identified the CSS relationship causing the problem and refined the search wrapper/dropdown structure 
+so the dropdown matches the input width and remains responsive.
 
 #### 2. Improved unauthenticated favourite behavior
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#2-improved-unauthenticated-favourite-behavior)
-
-I identified that a logged-out user needed clear feedback when clicking the favourite heart. The final interaction explains that login/signup is required instead of silently failing, improving the user experience without changing the underlying favourite system.
+I identified that a logged-out user needed clear feedback when clicking the favourite heart. 
+The final interaction explains that login/signup is required instead of silently failing, 
+improving the user experience without changing the underlying favourite system.
 
 #### 3. Added safe favourite removal
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#3-added-safe-favourite-removal)
-
-I identified the risk of accidental removal on the Favourites page and introduced an in-app confirmation flow with Remove and Cancel actions.
+I identified the risk of accidental removal on the Favourites page and introduced an in-app 
+confirmation flow with Remove and Cancel actions.
 
 Remove from Favourites? → [Remove] [Cancel]
 
@@ -1168,39 +991,36 @@ The existing favourite logic is reused rather than creating duplicate Firestore 
 
 #### 4. Reviewed accessibility beyond visual appearance
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#4-reviewed-accessibility-beyond-visual-appearance)
-
-I refined the confirmation interaction to support keyboard users, including Escape-to-cancel, focus handling, ARIA attributes, and accessible button labels.
+I refined the confirmation interaction to support keyboard users, including Escape-to-cancel, 
+focus handling, ARIA attributes, and accessible button labels.
 
 ### 5. Verified API assumptions
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#5-verified-api-assumptions)
-
-I reviewed the capabilities of OMDb rather than assuming it provided dedicated Trending, Popular, or Top Rated endpoints. The final implementation uses supported OMDb searches with curated movie collections.
+I reviewed the capabilities of OMDb rather than assuming it provided dedicated Trending, Popular, 
+or Top Rated endpoints. The final implementation uses supported OMDb searches with curated movie collections.
 
 ### 6. Iterated on visual and responsive issues
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#6-iterated-on-visual-and-responsive-issues)
-
-I tested the Hero, search interface, movie cards, and favourite interactions across screen sizes and refined spacing, overlays, readability, and responsive behavior where the initial implementation did not meet the intended UX.
+I tested the Hero, search interface, movie cards, and favourite interactions across screen sizes and refined spacing, 
+overlays, readability, and responsive behavior where the initial implementation did not meet the intended UX.
 
 ### 7. Improved Favourite Login/Signup Behavior
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#7-improved-favourite-loginsignup-behavior)
-
-The original favourite interaction did not clearly explain what happened when a logged-out user clicked the heart. I changed it so the user receives a clear prompt: “Want to save this movie? Log in or sign up to add it to your favourites.” The movie is only saved to Firestore after authentication. Reason: I improved the UX instead of simply disabling the feature.
+The original favourite interaction did not clearly explain what happened when a logged-out user clicked the heart. 
+I changed it so the user receives a clear prompt: “Want to save this movie? Log in or sign up to add it to your 
+favourites.” The movie is only saved to Firestore after authentication. Reason: I improved the UX instead 
+of simply disabling the feature.
 
 ### 8. Optimized the Hero Carousel
 
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#8-optimized-the-hero-carousel)
-
-Instead of requesting a new movie image every time the hero changed, I changed the implementation to load a small collection of movie images and rotate through the already-loaded data. I also ensured the carousel timer is cleaned up when the component unmounts. Reason: This reduces unnecessary API requests and improves performance.
+Instead of requesting a new movie image every time the hero changed, I changed the implementation to load 
+a small collection of movie images and rotate through the already-loaded data. I also ensured the carousel
+timer is cleaned up when the component unmounts. Reason: This reduces unnecessary API requests 
+and improves performance.
 
 ---
 
 # 23. 📚 What This Project Demonstrates
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#23--what-this-project-demonstrates)
 
 Movie Explorer demonstrates practical experience with:
 
@@ -1228,8 +1048,6 @@ Movie Explorer demonstrates practical experience with:
 ---
 
 # 24. 🚀 Future Improvements
-
-[svg](https://github.com/Hafsa0104/movie-explorer/blob/master/README.md#24--future-improvements)
 
 Possible future improvements include:
 
