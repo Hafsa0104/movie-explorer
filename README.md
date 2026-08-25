@@ -37,18 +37,24 @@ The project was developed using an **AI-assisted development workflow**. AI tool
 
 # 🛠️ Technology Stack
 
-Technology	Purpose
-React	User interface
-TypeScript	Type-safe development
-Vite	Development and production tooling
-React Router	Client-side routing
-OMDb API	Movie search and movie information
-Firebase Authentication	User registration, login, and logout
-Cloud Firestore	Per-user favourite movie storage
-CSS	Styling and responsive design
-Git & GitHub	Version control and project documentation
-AI coding assistants	Development assistance, debugging, refinement, and review
+```text
+<div style="margin-left: 40px;">
 
+| Technology | Purpose |
+|---|---|
+| React | User interface |
+| TypeScript | Type-safe development |
+| Vite | Development and production tooling |
+| React Router | Client-side routing |
+| OMDb API | Movie search and movie information |
+| Firebase Authentication | User registration, login, and logout |
+| Cloud Firestore | Per-user favourite movie storage |
+| CSS | Styling and responsive layouts |
+| Git & GitHub | Version control and project documentation |
+| AI coding assistants | Development assistance, debugging, refinement, and review |
+
+</div>
+```
 ---
 
 # 🏗️ Architecture
