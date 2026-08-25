@@ -2,51 +2,52 @@
 
 A responsive movie discovery web application built with **React, TypeScript, Vite, React Router, OMDb API, Firebase Authentication, and Cloud Firestore**.
 
-Movie Explorer allows users to discover movies, search for titles, explore different movie categories, view movie details, and manage their favourite movies.
+Movie Explorer allows users to discover movies through curated movie sections, search for titles, view movie details, and manage their personal favourite movies.
 
-The project was developed using an **AI-assisted development workflow**. AI tools were used as development assistants for project setup, implementation, debugging, refactoring, accessibility improvements, responsive design, and documentation. All generated code and suggestions were reviewed, tested, adapted, and integrated into the project.
+The project was developed using an **AI-assisted development workflow**. AI tools were used as development assistants for project setup, implementation, debugging, refactoring, accessibility improvements, responsive design, and performance improvements. All generated code and suggestions were reviewed, tested, adapted, and integrated into the project.
 
 ---
 
 ## ✨ Features
 
-* 🏠 Home page with movie discovery sections
-* 🎬 Hero movie section with cinematic background
-* 🔥 Trending Movies
-* ⭐ Popular Movies
-* 🏆 Top Rated Movies
-* 🆕 New Releases
-* 🔎 Movie search
-* 🎞️ Movie details
-* ❤️ Add/remove favourite movies
-* 🔐 User registration and login
-* 🚪 Logout functionality
-* 👤 Per-user favourite movies
-* 🔒 Authentication-aware favourite interactions
-* 💬 Login/signup prompt for unauthenticated users
-* 📱 Responsive design
-* ♿ Accessibility-focused interactions
-* ⌨️ Keyboard-accessible UI
-* 🎨 Custom Movie Explorer branding and favicon
-* ⚡ Vite-based development and production build
-* ☁️ Cloud Firestore
+🏠 Cinematic Home page
+🎬 Hero movie section with cinematic background
+🔥 Trending Movies
+⭐ Popular Movies
+🏆 Top Rated Movies
+🆕 New Releases
+🔎 Movie search
+🎞️ Movie details
+❤️ Add and remove favourite movies
+🔐 User registration and login
+🚪 Logout functionality
+👤 Per-user favourite movies
+🔒 Authentication-aware favourite interactions
+💬 Login/signup prompt for unauthenticated users
+⚠️ Confirmation before removing favourites
+📱 Responsive design for desktop, tablet, and mobile
+♿ Accessibility-focused interactions
+⌨️ Keyboard-accessible confirmation interaction
+🎨 Custom Movie Explorer branding and favicon
+⚡ Vite-based development and production build
+☁️ Cloud Firestore integration
+🔑 Environment-variable-based API and Firebase configuration
 
 ---
 
 # 🛠️ Technology Stack
 
-| Technology              | Purpose                                                          |
-| ----------------------- | ---------------------------------------------------------------- |
-| React                   | User interface                                                   |
-| TypeScript              | Type-safe development                                            |
-| Vite                    | Development and production tooling                               |
-| React Router            | Application routing                                              |
-| OMDb API                | Movie search and movie information                               |
-| Firebase Authentication | User registration and login                                      |
-| Cloud Firestore         | Per-user favourite movie storage                                 |
-| CSS                     | Styling and responsive design                                    |
-| Git & GitHub            | Version control and project documentation                        |
-| AI coding assistants    | Development assistance, debugging, refinement. |
+Technology	Purpose
+React	User interface
+TypeScript	Type-safe development
+Vite	Development and production tooling
+React Router	Client-side routing
+OMDb API	Movie search and movie information
+Firebase Authentication	User registration, login, and logout
+Cloud Firestore	Per-user favourite movie storage
+CSS	Styling and responsive design
+Git & GitHub	Version control and project documentation
+AI coding assistants	Development assistance, debugging, refinement, and review
 
 ---
 
